@@ -6,7 +6,7 @@
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 20:35:51 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/15 14:32:09 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:56:42 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,13 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*us;
-	unsigned char	uc;
-
 	if (!s)
 		return (NULL);
-	us = (unsigned char *)s;
-	uc = (unsigned char)c;
-	while (*us && n--)
+	while (n--)
 	{
-		if (*us == uc)
-			return ((void *)us);
-		us++;
+		if (*(unsigned char *)s == (unsigned char)c)
+			return ((void *)s);
+		s++;
 	}
-	if (uc == '\0')
-		return ((void *)us);
-	return (NULL);
+	return (0);
 }
