@@ -6,7 +6,7 @@
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:45:58 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/14 18:49:16 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:31:37 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
+	if (!dst || !src)
+		return (0);
 	if (dstsize > 0)
 	{
 		i = 0;
