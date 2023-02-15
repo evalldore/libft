@@ -6,7 +6,7 @@
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:58:30 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/14 18:50:52 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:57:06 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	i = 0;
 	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
 	{
-		if (s1[i] > s2[i])
+		if ((unsigned char)s1[i] > (unsigned char)s2[i])
 			return (1);
-		else if (s1[i] < s2[i])
+		else if ((unsigned char)s1[i] < (unsigned char)s2[i])
 			return (-1);
 		i++;
 	}
