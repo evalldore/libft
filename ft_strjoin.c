@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 18:52:28 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/15 19:01:25 by evallee-         ###   ########.fr       */
+/*   Created: 2023/02/15 20:10:15 by evallee-          #+#    #+#             */
+/*   Updated: 2023/02/15 20:40:46 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	*ptr;
+	char	*buff;
+	size_t	buffl;
 
-	ptr = malloc(size * count);
-	if (!ptr)
+	if (!s1 || !s2)
 		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	buffl = ft_strlen(s1) + ft_strlen(s2) + 1;
+	buff = malloc(buffl);
+	if (!buff)
+		return (NULL);
+	ft_strlcpy(buff, s1, buffl);
+	ft_strlcat(buff, s2, buffl);
+	return (buff);
 }
