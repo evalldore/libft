@@ -40,29 +40,27 @@ static char	**appendword(char **arr, const char **s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**ptr[2];
+	char	**arr;
+	char	**ptr;
 
-	ptr[0] = malloc((numwords(s, c) + 1) * sizeof(char *));
-	if (!ptr[0])
+	arr = malloc((numwords(s, c) + 1) * sizeof(char *));
+	if (!arr)
 		return (NULL);
-	ptr[1] = ptr[0];
+	ptr = arr;
 	while (*s)
 	{
-		if (*s != c)
+		while (*s && (*s != c))
 		{
-			while (*s && (*s != c))
+			if (ft_strchr(s, c))
 			{
-				if (ft_strchr(s, c))
-				{
-					ptr[0] = appendword(ptr[0], &s, c);
-					continue ;
-				}
-				ptr[0] = appendword(ptr[0], &s, '\0');
+				arr = appendword(arr, &s, c);
+				continue ;
 			}
+			arr = appendword(arr, &s, '\0');
 		}
 		if (*s)
 			s++;
 	}
-	*ptr[0] = NULL;
-	return (ptr[1]);
+	arr = NULL;
+	return (ptr);
 }
