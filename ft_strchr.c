@@ -6,7 +6,7 @@
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:32:53 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/15 18:02:36 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:19:47 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strchr(const char *s, int c)
 	while (*s != (unsigned char)c)
 	{
 		if (!*s++)
-			return (0);
+			return (NULL);
 	}
 	return ((char *)s);
 }

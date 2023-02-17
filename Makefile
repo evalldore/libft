@@ -24,7 +24,9 @@ SRCS		= ft_isalpha.c \
 			ft_atoi.c \
 			ft_calloc.c \
 			ft_substr.c \
-			ft_strjoin.c
+			ft_strjoin.c \
+			ft_strtrim.c \
+			ft_split.c
 
 OBJS		= $(addprefix $(BIN)/, $(SRCS:.c=.o))
 NAME		= libft.a
