@@ -6,11 +6,11 @@
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 23:58:07 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/13 17:15:12 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:22:05 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

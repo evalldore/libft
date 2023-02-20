@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/20 15:21:14 by evallee-          #+#    #+#             */
+/*   Updated: 2023/02/20 15:21:45 by evallee-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static unsigned int to_uint(int n, int *s)
+static unsigned int	to_uint(int n, int *s)
 {
 	if (n < 0)
 	{
 		*s = -1;
-		return (unsigned int)(n *= -1);
+		return ((unsigned int)(n *= -1));
 	}
 	*s = 1;
 	return ((unsigned int) n);
@@ -13,9 +25,9 @@ static unsigned int to_uint(int n, int *s)
 
 static char	*ft_strrev(char *str)
 {
-	char tmp;
-	int i;
-	int j;
+	char	tmp;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = ft_strlen(str) - 1;
