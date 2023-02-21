@@ -6,7 +6,7 @@
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:34:05 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/20 15:28:59 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:42:18 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		return (ptr);
 	}
 	while (n--)
-			*(char *)dest++ = *(char *)src++;
+		*(char *)dest++ = *(char *)src++;
 	return (ptr);
 }

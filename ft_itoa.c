@@ -6,7 +6,7 @@
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:21:14 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/20 15:21:45 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:54:29 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ char	*ft_itoa(int n)
 	unsigned int	i;
 	int				s;
 
+	if (n == 0)
+		return (ft_strdup("0"));
 	cur = to_uint(n, &s);
 	i = 0;
 	while (cur > 0)

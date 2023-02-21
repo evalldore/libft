@@ -6,7 +6,7 @@
 /*   By: evallee- <evallee-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:20:31 by evallee-          #+#    #+#             */
-/*   Updated: 2023/02/20 15:20:32 by evallee-         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:34:21 by evallee-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*ns;
 
 	if (!s || !f)
-		return NULL;
+		return (NULL);
 	i = 0;
 	l = ft_strlen(s);
-	ns = malloc(l);
+	ns = malloc(l + 1);
 	if (!ns)
-		return NULL;
+		return (NULL);
 	ft_strlcpy(ns, s, l + 1);
 	while (ns[i])
 	{
