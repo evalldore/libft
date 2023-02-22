@@ -33,14 +33,23 @@ SRCS		= ft_isalpha.c \
 			ft_putchar_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
-			ft_putnbr_fd.c
+			ft_putnbr_fd.c 
+
+BONUS		=ft_lstnew_bonus.c \
+			ft_lstadd_front_bonus.c \
+			ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c \
+			ft_lstadd_back_bonus.c \
+			ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c
 
 OBJS		= $(addprefix $(BIN)/, $(SRCS:.c=.o))
+BOBJS		= $(addprefix $(BIN)/, $(BONUS:.c=.o))
 NAME		= libft.a
 TEST		= test
 CC			= gcc
 RM			= rm -f
-LIBC		= ar rc
+LIBC		= ar rcs
 CFLAGS		= -Wall -Wextra -Werror
 
 all	: $(NAME)
@@ -52,6 +61,9 @@ test: test.c
 	$(CC) $(CFLAGS) -o test test.c $(NAME)
 	./test
 	rm test
+
+bonus: $(BIN) $(BOBJS)
+	$(LIBC) $(NAME) $(BOBJS)
 
 $(BIN)/%.o : %.c
 	$(CC) -c $(CFLAGS) -o $@ $^
