@@ -38,14 +38,30 @@ static char	**appendword(char **arr, const char **s, char c)
 	return (arr);
 }
 
+static	void	*ft_clearshit(char	**start, char	**end)
+{
+	unsigned int	i;
+
+	i = (end - start);
+	while (i)
+		free(start[i--]);
+	free(start);
+	return (NULL);
+}
+
+char	**ft_allocate(unsigned int num, char ***start, char ***end)
+{
+	*start = malloc(num * sizeof(char *));
+	*end = *start;
+	return (*start);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr[2];
 
-	ptr[0] = malloc((numwords(s, c) + 1) * sizeof(char *));
-	if (!ptr[0])
+	if (!ft_allocate(numwords(s, c) + 1, &ptr[1], &ptr[0]))
 		return (NULL);
-	ptr[1] = ptr[0];
 	while (*s)
 	{
 		while (*s && (*s != c))
@@ -53,9 +69,13 @@ char	**ft_split(char const *s, char c)
 			if (ft_strchr(s, c))
 			{
 				ptr[0] = appendword(ptr[0], &s, c);
+				if (!(ptr[0] - 1))
+					return (ft_clearshit(ptr[1], ptr[0]));
 				continue ;
 			}
 			ptr[0] = appendword(ptr[0], &s, '\0');
+			if (!(ptr[0] - 1))
+				return (ft_clearshit(ptr[1], ptr[0]));
 		}
 		if (*s)
 			s++;
