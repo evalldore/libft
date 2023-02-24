@@ -60,9 +60,7 @@ $(NAME): $(BIN) $(OBJS)
 	$(LIBC) $@ $(OBJS)
 
 test: test.c
-	$(CC) $(CFLAGS) -o test test.c $(NAME)
-	./test
-	rm test
+	$(CC) $(CFLAGS) -g -o test test.c $(NAME)
 
 bonus: $(BIN) $(BOBJS)
 	$(LIBC) $(NAME) $(BOBJS)

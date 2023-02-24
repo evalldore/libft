@@ -31,20 +31,23 @@ static size_t	numwords(char const *s, char c)
 	return (num);
 }
 
-static char	**appendword(char **arr, const char **s, char c)
+static char	*appendword(char **arr, const char **s, char c)
 {
-	*arr++ = ft_substr(*s, 0, ft_strchr(*s, c) - *s);
+	char	*sub;
+
+	sub = ft_substr(*s, 0, ft_strchr(*s, c) - *s);
+	*arr = sub;
 	*s = ft_strchr(*s, c);
-	return (arr);
+	return (sub);
 }
 
-static	void	*ft_clearshit(char	**start, char	**end)
+static	void	*ft_clearshit(char	**start)
 {
 	unsigned int	i;
 
-	i = (end - start);
-	while (i)
-		free(start[i--]);
+	i = 0;
+	while (start[i])
+		free(start[i++]);
 	free(start);
 	return (NULL);
 }
@@ -68,14 +71,14 @@ char	**ft_split(char const *s, char c)
 		{
 			if (ft_strchr(s, c))
 			{
-				ptr[0] = appendword(ptr[0], &s, c);
-				if (!(ptr[0] - 1))
-					return (ft_clearshit(ptr[1], ptr[0]));
+				if (!appendword(ptr[0], &s, c))
+					return (ft_clearshit(ptr[1]));
+				ptr[0]++;
 				continue ;
 			}
-			ptr[0] = appendword(ptr[0], &s, '\0');
-			if (!(ptr[0] - 1))
-				return (ft_clearshit(ptr[1], ptr[0]));
+			if (!appendword(ptr[0], &s, '\0'))
+				return (ft_clearshit(ptr[1]));
+			ptr[0]++;
 		}
 		if (*s)
 			s++;
